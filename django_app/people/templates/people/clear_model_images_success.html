@@ -1,0 +1,18 @@
+{% extends 'landing/base.html' %} {% load static %} {% block content %}
+
+<section id="team" class="team section-bg">
+  <div class="container" style="padding-top: 30px">
+    <div class="section-title">
+      {% if fetched_data %}
+      <h2>Successfully Cleared The Model Images!</h2>
+      <p>{{ fetched_data.message }}</p>
+
+      {% else %}
+      <p>Error.</p>
+
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+{% endblock content %}

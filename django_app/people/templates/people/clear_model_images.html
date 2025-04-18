@@ -1,0 +1,31 @@
+{% extends 'landing/base.html' %} {% load static %} {% block content %}
+<h1>Clear Model Images</h1>
+
+{% if error %}
+<div class="alert alert-danger">{{ error }}</div>
+{% endif %}
+
+<div
+  style="
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px 0;
+  "
+>
+  <h3>Are you sure you want to clear all the images exist in the model?</h3>
+
+  <form method="post" style="text-align: left; padding-top: 40px">
+    {% csrf_token %}
+    <div style="margin-bottom: 20px">
+      <input type="checkbox" name="delete_from_db" id="delete_from_db" />
+      <label for="delete_from_db">Also delete images from the database? </label>
+      <h6 style="font-weight: 400; font-size: 0.8rem">
+        Data in the database will also be deleted, This action cannot be undone.
+      </h6>
+    </div>
+    <button type="submit" class="btn btn-danger">Clear Images</button>
+  </form>
+</div>
+{% endblock %}
